@@ -1,35 +1,52 @@
-# lner
+# LNER - Lightweight Language Model for Code Completion
 
-A lightweight GPT style code completion model
+LNER is a GPT-style language model built with PyTorch. It generates code completions using custom-trained transformer models for Python and C++.
 
 ## Features
 
-- **Custom BPE Tokenizer**: Byte level BPE tokenizer trained specifically on Python code
-- **Transformer Architecture**: GPT like model with causal self attention
-- **Multi-Device Support**: CUDA (Nvidia), MPS (Apple Silicon), and CPU
-- **Lazy Dataset Loading**: Memory efficient training on large code corpus
-- **Code Completion**: Generate Python code completions
+- Custom byte-level BPE tokenizer
+- Decoder-only Transformer with causal self-attention
+- GPU-accelerated training with CUDA
+- Lazy dataset loading
+- Cross-device inference (CUDA, Apple MPS, CPU)
+- PySide6 desktop code editor
+- Syntax highlighting and ghost-text suggestions
+- Background completion generation
 
-## Architecture
+## Model Architecture
 
-| Component | Value |
-|-----------|-------|
-| Layers | 6 |
-| Heads | 8 |
-| D Model | 256 |
-| D FF | 1024 |
-| Vocab Size | 12000 |
-| Seq Length | 256 |
-| Dropout | 0.1 |
+| Parameter | Value |
+|---|---:|
+| Transformer layers | 6 |
+| Attention heads | 8 |
+| Model dimension | 256 |
+| Feed-forward dimension | 1,024 |
+| Vocabulary size | 12,000 |
+| Context length | 256 tokens |
 
 ## Requirements
 
-```
-torch
-tokenizers
-psutil
+- Python
+- PyTorch
+- Hugging Face Tokenizers
+- PySide6
+- psutil
+
+Install dependencies:
+
+```bash
+pip install torch tokenizers PySide6 psutil
 ```
 
-I have trained a Python model and a C++ model on my friend's GPU with this, and it was fast and good enough for finishing obvious code snippets.
+## Overview
 
-This is for a hackathon thing.
+LNER was built to explore language model development, from tokenization and transformer implementation to training and integration.
+
+It is designed for short code completions rather than complex code generation.
+
+## Future Work
+
+- Expand training datasets
+- Improve completion quality
+- Add performance benchmarks
+- Optimize inference speed
